@@ -1,6 +1,6 @@
 {
   "name": "@atton16/binance-api",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Binance Client API SDK for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
     "lint": "tslint -p .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rimraf dist && tsc"
   },
   "author": "Attawit Kittikrairit",
   "license": "ISC",
