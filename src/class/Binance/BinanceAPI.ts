@@ -8,6 +8,7 @@ import * as WebSocket from 'ws';
 const ms = require('ms');
 import { IBinanceCancelOrderResponse } from '../../interface/IBinanceCancelOrderResponse';
 import { Portfolio } from '../Generic/Portfolio';
+import { PriceTicker } from '../Generic/PriceTicker';
 import { Ticker } from '../Generic/Ticker';
 import { BinanceExchangeInfo } from './BinanceExchangeInfo';
 import { BinanceGetOrderResponse } from './BinanceGetOrderResponse';
@@ -266,6 +267,14 @@ export class BinanceAPI extends BinanceSignableAPI {
       qs,
       uri: new URL('/api/v1/klines', this.baseUrl).toString(),
     }).then((res) => res);
+  }
+
+  public priceTicker(symbol?: string): Promise<PriceTicker[]> {
+    return request.get({
+      json: true,
+      qs: {symbol},
+      uri: new URL('/api/v3/ticker/price', this.baseUrl).toString(),
+    }).then((res) => res.map((r: any) => new PriceTicker(r)));
   }
 
   public ticker24h(symbol: string): Promise<Ticker> {

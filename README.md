@@ -37,6 +37,7 @@ api.klines('BTCUSDT', '1d').then(console.log);
 api.miniTickerStream('BTCUSDT').subscribe(console.log);
 api.openOrders({...cred}).then(console.log);
 api.order({...cred, symbol: 'BTCUSDT', side: 'BUY', type: 'LIMIT', price: 40000}).then(console.log);
+api.priceTicker().then(console.log);
 api.queryOrder({...cred, symbol: 'BTCUSDT'}).then(console.log);
 api.savings.flexible.account({...cred}).then(console.log);
 api.savings.flexible.products({...cred}).then((products) => {
