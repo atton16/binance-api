@@ -38,3 +38,7 @@ api.userDataStream.start({apiKey: cred.apiKey}).then(() => {
     api.userDataStream.close({apiKey: cred.apiKey});
   }, 1000);
 });
+api.bswap.pools({...cred}).then(console.log);
+api.bswap.liquidity({...cred}).then(console.log);
+api.bswap.addLiquidity({...cred, poolId: 0, asset: 'BTC', quantity: 1}).then(console.log);
+api.bswap.removeLiquidity({...cred, poolId: 0, asset: ['BTC'], type: 'SINGLE', shareAmount: 1}).then(console.log);

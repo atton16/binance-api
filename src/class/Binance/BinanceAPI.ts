@@ -31,11 +31,13 @@ import {
 } from './BinanceTypes';
 import { BinanceUserDataStream } from './BinanceUserDataStream';
 import { BinanceWebSocket } from './BinanceWebSocket';
+import { BinanceBSwapSavingsAPI } from './BSwap/BinanceBSwapAPI';
 import { BinanceSavingsAPI } from './Savings/Flexible/BinanceSavingsAPI';
 
 export class BinanceAPI extends BinanceSignableAPI {
   public userDataStream = new BinanceUserDataStream();
   public savings = new BinanceSavingsAPI();
+  public bswap = new BinanceBSwapSavingsAPI();
   private baseUrl = 'https://api.binance.com';
   private wsBaseUrl = 'wss://stream.binance.com:9443';
   private ws: {
