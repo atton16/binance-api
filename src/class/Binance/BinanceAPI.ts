@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import * as request from 'request-promise';
+import request from '../../polyfill/request-promise';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import * as WebSocket from 'ws';

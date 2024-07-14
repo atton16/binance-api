@@ -1,4 +1,4 @@
-import * as request from 'request-promise';
+import request from '../../../../polyfill/request-promise';
 import { BinanceSignableAPI } from '../../BinanceSignableAPI';
 import { BinanceGetFlexibleProductListResponse } from './BinanceGetFlexibleProductListResponse';
 import { BinanceGetFlexibleProductPositionResponse } from './BinanceGetFlexibleProductPositionResponse';
