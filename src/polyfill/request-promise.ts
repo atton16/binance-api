@@ -7,6 +7,12 @@ type RequestOptions = {
 };
 
 const handler = (method: RequestInit["method"], opt: RequestOptions) => {
+  if (typeof opt.qs === 'object') {
+    Object.keys(opt.qs).forEach(key => opt.qs[key] === undefined ? delete opt.qs[key] : {});
+  }
+  if (typeof opt.headers === 'object') {
+    Object.keys(opt.headers).forEach(key => opt.headers[key] === undefined ? delete opt.headers[key] : {});
+  }
   const qs = new URLSearchParams(opt.qs).toString();
   const uri = qs ? `${opt.uri}?${qs}` : opt.uri;
   return fetch(uri, {
